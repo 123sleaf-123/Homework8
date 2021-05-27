@@ -1,18 +1,18 @@
-/* ±¾³ÌĞò */
+/* æœ¬ç¨‹åºæ—¨åœ¨æ¸…æ´—å‡ºå·ç çš„åŸæœ¬çš„å·ç æ®µå¹¶äºˆä»¥å‘ˆç°ï¼Œç›®å‰ä»…æ”¯æŒæŸ¥è¯¢ä¸­å›½çš„æ‰‹æœºå·ï¼Œè¿æ¥ä¸Šå¤–éƒ¨ç¨‹åºå³å¯å‘ˆç°æ‰‹æœºå·ç å½’å± */
 #include <stdio.h>
 #include <string.h>
-int Deletestring_1(char* phone,int condition1);//É¾³ı³¤Í¾²¦ºÅ±êÖ¾¡°+¡±»ò¡°00¡±»ò¡°0¡± 
-int Deletestring_2(char* phone,int country);//É¾³ı¹ú¼Ò\µØÇøÂë±êÖ¾¡°nums¡±
-int Deletestring_3(char* phone,int j);//É¾³ı´ø·şÎñºÅµÄºÅÂëµÄ·şÎñºÅ£¬Èç96446 
+int Deletestring_1(char* phone,int condition1);//åˆ é™¤é•¿é€”æ‹¨å·æ ‡å¿—â€œ+â€æˆ–â€œ00â€æˆ–â€œ0â€ 
+int Deletestring_2(char* phone,int country);//åˆ é™¤å›½å®¶\åœ°åŒºç æ ‡å¿—â€œnumsâ€
+int Deletestring_3(char* phone,int j);//åˆ é™¤å¸¦æœåŠ¡å·çš„å·ç çš„æœåŠ¡å·ï¼Œå¦‚96446 
 
 
 int Deletestring_1(char* phone,int condition1){
 	if(condition1 == 3) return 0;
 	int i = strlen(phone);
 	int j;
-	if(condition1 == 11) j = 1;//Èç¹ûÊÇ+¿ªÍ·£¬´ÓµÚ¶şÎ»£¨ÏÂ±ê1£©¿ªÊ¼×÷ÎªĞÂµÄ¿ªÍ· 
-	if(condition1 == 12) j = 2;//Èç¹ûÊÇ00¿ªÍ·£¬´ÓµÚÈıÎ»£¨ÏÂ±ê2£©¿ªÊ¼×÷ÎªĞÂµÄ¿ªÍ· 
-	if(condition1 == 2) j = 1;//Èç¹ûÊÇ0¿ªÍ·£¬´ÓµÚ¶şÎ»£¨ÏÂ±ê1£©¿ªÊ¼×÷ÎªĞÂµÄ¿ªÍ· 
+	if(condition1 == 11) j = 1;//å¦‚æœæ˜¯+å¼€å¤´ï¼Œä»ç¬¬äºŒä½ï¼ˆä¸‹æ ‡1ï¼‰å¼€å§‹ä½œä¸ºæ–°çš„å¼€å¤´ 
+	if(condition1 == 12) j = 2;//å¦‚æœæ˜¯00å¼€å¤´ï¼Œä»ç¬¬ä¸‰ä½ï¼ˆä¸‹æ ‡2ï¼‰å¼€å§‹ä½œä¸ºæ–°çš„å¼€å¤´ 
+	if(condition1 == 2) j = 1;//å¦‚æœæ˜¯0å¼€å¤´ï¼Œä»ç¬¬äºŒä½ï¼ˆä¸‹æ ‡1ï¼‰å¼€å§‹ä½œä¸ºæ–°çš„å¼€å¤´ 
 	int k;
 	for( k = 0 ; j < i ; k++ , j++){
 		phone[k] = phone[j];
@@ -22,14 +22,14 @@ int Deletestring_1(char* phone,int condition1){
 }
 
 int Deletestring_2(char* phone,int country){
-	if(country == 0) return 1;//Èç¹ûÊÇÆäËû¿ªÍ·£¬Ö±½Ó·µ»Ø1ÒÔ½áÊø³ÌĞò 
+	if(country == 0) return 1;//å¦‚æœæ˜¯å…¶ä»–å¼€å¤´ï¼Œç›´æ¥è¿”å›1ä»¥ç»“æŸç¨‹åº 
 	int i = strlen(phone);
 	int j;
-	//if(country == 0) j = 3;Èç¹ûÊÇÆäËû¿ªÍ·£¬Ä¬ÈÏ´ÓµÚËÄÎ»£¨ÏÂ±ê3£©¿ªÊ¼×÷ÎªĞÂµÄ¿ªÍ·
-	if(country == 1) j = 2;//Èç¹ûÊÇ86¿ªÍ·£¬´ÓµÚÈıÎ»£¨ÏÂ±ê2£©¿ªÊ¼×÷ÎªĞÂµÄ¿ªÍ· 
-	if(country == 2) j = 3;//Èç¹ûÊÇ852¿ªÍ·£¬´ÓµÚËÄÎ»£¨ÏÂ±ê3£©¿ªÊ¼×÷ÎªĞÂµÄ¿ªÍ· 
-	if(country == 3) j = 3;//Èç¹ûÊÇ853¿ªÍ·£¬´ÓµÚËÄÎ»£¨ÏÂ±ê3£©¿ªÊ¼×÷ÎªĞÂµÄ¿ªÍ· 
-	if(country == 4) j = 3;//Èç¹ûÊÇ886¿ªÍ·£¬´ÓµÚËÄÎ»£¨ÏÂ±ê3£©¿ªÊ¼×÷ÎªĞÂµÄ¿ªÍ· 
+	//if(country == 0) j = 3;å¦‚æœæ˜¯å…¶ä»–å¼€å¤´ï¼Œé»˜è®¤ä»ç¬¬å››ä½ï¼ˆä¸‹æ ‡3ï¼‰å¼€å§‹ä½œä¸ºæ–°çš„å¼€å¤´
+	if(country == 1) j = 2;//å¦‚æœæ˜¯86å¼€å¤´ï¼Œä»ç¬¬ä¸‰ä½ï¼ˆä¸‹æ ‡2ï¼‰å¼€å§‹ä½œä¸ºæ–°çš„å¼€å¤´ 
+	if(country == 2) j = 3;//å¦‚æœæ˜¯852å¼€å¤´ï¼Œä»ç¬¬å››ä½ï¼ˆä¸‹æ ‡3ï¼‰å¼€å§‹ä½œä¸ºæ–°çš„å¼€å¤´ 
+	if(country == 3) j = 3;//å¦‚æœæ˜¯853å¼€å¤´ï¼Œä»ç¬¬å››ä½ï¼ˆä¸‹æ ‡3ï¼‰å¼€å§‹ä½œä¸ºæ–°çš„å¼€å¤´ 
+	if(country == 4) j = 3;//å¦‚æœæ˜¯886å¼€å¤´ï¼Œä»ç¬¬å››ä½ï¼ˆä¸‹æ ‡3ï¼‰å¼€å§‹ä½œä¸ºæ–°çš„å¼€å¤´ 
 	int k;
 	for( k = 0 ; j < i ; k++ , j++){
 		phone[k] = phone[j];
@@ -41,7 +41,7 @@ int Deletestring_2(char* phone,int country){
 int Deletestring_3(char* phone,int j){
 	int i = strlen(phone);
 	int k;
-	for( k = 0 ; j < i ; k++ , j++){//·şÎñºÅÖîÈç96446¿ªÍ·£¬´ÓµÚ7Î»£¨ÏÂ±ê6£©£¬¼´964460µÄÏÂÒ»Î»¿ªÊ¼×÷ÎªĞÂµÄ¿ªÍ· 
+	for( k = 0 ; j < i ; k++ , j++){//æœåŠ¡å·è¯¸å¦‚96446å¼€å¤´ï¼Œä»ç¬¬7ä½ï¼ˆä¸‹æ ‡6ï¼‰ï¼Œå³964460çš„ä¸‹ä¸€ä½å¼€å§‹ä½œä¸ºæ–°çš„å¼€å¤´ 
 		phone[k] = phone[j];
 	}
 	phone[k] = '\0';
@@ -49,129 +49,125 @@ int Deletestring_3(char* phone,int j){
 } 
 
 int main (void){
-	//sscanf(,"$%d",buf);
-	char phone[] = "+86110" ;//008695132013828081666,07506679820
-	int condition1 = 0, condition2 = 0, condition3 = 0, country = 0, length = 0;
+	char phone[25];//008695132013828081666,07506679820
+	printf("Please input the phone numbers:");
+	while(EOF == scanf("%s",phone));
+	int condition1 = 0, condition2 = 0, condition3 = 0, country = 3, length = 0;
 	char pre5[5],pre4[4],pre3[3],pre2[2],pre1[1];
 	strncpy(pre4,phone,4);
 	
 	if(pre4[0] == '+'){
-		condition1 = 11;//¹ú¼Ê³¤Í¾ +nums 
+		condition1 = 11;//å›½é™…é•¿é€” +nums 
 	}
 	else if(pre4[0] == '0'){
 		if(pre4[1] == '0'){
-			condition1 = 12;//¹ú¼Ò³¤Í¾ 00nums 
+			condition1 = 12;//å›½å®¶é•¿é€” 00nums 
 		}
 		else{
-			condition1 = 2;//¹úÄÚ³¤Í¾ 0 phonenums 
+			condition1 = 2;//å›½å†…é•¿é€” 0 phonenums 
 		}
 	}
 	else{
-		condition1 = 3;//ÊĞÄÚµç»° 
+		condition1 = 3;//å¸‚å†…ç”µè¯ 
 	}
 	
 	Deletestring_1(phone,condition1); 
-	printf("%s\n",phone);
-	strncpy(pre3,phone,3);//È¡³öÉ¾³ıÁË³¤Í¾±ê¼ÇµÄµç»°ºÅÂëµÄÇ°ÈıÎ» 
+	//printf("%s\n",phone);
+	strncpy(pre3,phone,3);//å–å‡ºåˆ é™¤äº†é•¿é€”æ ‡è®°çš„ç”µè¯å·ç çš„å‰ä¸‰ä½ 
 	//printf("%s\n",pre3);
 	
-	if(condition1 > 10){ //µ±²¦ºÅÀàĞÍÎª¹ú¼Ò³¤Í¾Ê± 
+	if(condition1 > 10){ //å½“æ‹¨å·ç±»å‹ä¸ºå›½å®¶é•¿é€”æ—¶ 
 		if(pre3[0] == '8'){
 			if(pre3[1] == '6'){
-				country = 1;//¼Ç1ÎªÖĞ¹ú´óÂ½ 86
+				country = 1;//è®°1ä¸ºä¸­å›½å¤§é™† 86
 			}
 			else if(pre3[1] == '5'){
 				if(pre3[2] == '2'){
-					country = 2;//¼Ç2ÎªÖĞ¹úÏã¸Û 852
+					country = 2;//è®°2ä¸ºä¸­å›½é¦™æ¸¯ 852
 				}
 				else if(pre3[2] == '3'){
-						country = 3;//¼Ç3ÎªÖĞ¹ú°ÄÃÅ 853
+						country = 3;//è®°3ä¸ºä¸­å›½æ¾³é—¨ 853
 				}
-				else country = 0;//¼Ç0ÎªÎ´ÖªµØÇø»ò¹ú¼Ò
+				else country = 0;//è®°0ä¸ºæœªçŸ¥åœ°åŒºæˆ–å›½å®¶
 			}
 			else if(pre3[1] == '8'){
 				if(pre3[2] == '6'){
-					country = 4;//¼Ç4ÎªÖĞ¹úÌ¨Íå 886
+					country = 4;//è®°4ä¸ºä¸­å›½å°æ¹¾ 886
 				}
-				else country = 0;//¼Ç0ÎªÎ´ÖªµØÇø»ò¹ú¼Ò
+				else country = 0;//è®°0ä¸ºæœªçŸ¥åœ°åŒºæˆ–å›½å®¶
 			}
-			else country = 0;//¼Ç0ÎªÎ´ÖªµØÇø»ò¹ú¼Ò
+			else country = 0;//è®°0ä¸ºæœªçŸ¥åœ°åŒºæˆ–å›½å®¶
 		}
-		else country = 0;//¼Ç0ÎªÎ´ÖªµØÇø»ò¹ú¼Ò 
+		else country = 0;//è®°0ä¸ºæœªçŸ¥åœ°åŒºæˆ–å›½å®¶ 
 		if(Deletestring_2(phone,country)){
-		printf("²»ÔÊĞí²éÑ¯·ÇÖĞ¹úµØÇøµç»°ºÅÂë%c",7);
-		return 1;//·ÇÖĞ¹úºÅÂë¶øÍË³ö·µ»ØÖµÉèÎª1£¬ÓëÕı³£ÍË³öµÄ0ĞÎ³É¶Ô±ÈÌáĞÑÓÃ»§ 
+		printf("NOT ALLOW CONSULTING NON-CHINA REGIONS!%c\n",7);
+		return 1;//éä¸­å›½å·ç è€Œé€€å‡ºè¿”å›å€¼è®¾ä¸º1ï¼Œä¸æ­£å¸¸é€€å‡ºçš„0å½¢æˆå¯¹æ¯”æé†’ç”¨æˆ· 
 		}
 	} 
 	
-	printf("%s\n",phone);
+	//printf("%s\n",phone);
 	length = strlen(phone);
-	printf("%d\n",length);
+	//printf("%d\n",length);
+	char MAC[4],SSSS[3] = {'\0'},SSS[2] = {'\0'};
 	
-	if(length == 17){//´¦Àí´øÌØÊâ·şÎñÊÖ»úµç»°ºÅÂë 
+	if(length == 17){//å¤„ç†å¸¦ç‰¹æ®ŠæœåŠ¡æ‰‹æœºç”µè¯å·ç  
 		char id[6];
 		strncpy(id,phone,5);
 		Deletestring_3(phone,6); 
+		condition2 = 3;
 		id[5] = '\0';
 	}
-	printf("%s\n",phone);
+	//printf("%s\n",phone);
 	
-	if(length == 11){
+	else if(length == 11){
 		if(phone[0] == '1'){
 			condition2 = 1;
-			char MAC[4];
-			strncpy(MAC,phone,3); //´¢´æÒÆ¶¯½ÓÈëÂë 
-			Deletestring_3(phone,3); //É¾³ı½ÓÈëÂë¶ÎÈı¸ö×Ö·û 
+			strncpy(MAC,phone,3); //å‚¨å­˜ç§»åŠ¨æ¥å…¥ç  
+			Deletestring_3(phone,3); //åˆ é™¤æ¥å…¥ç æ®µä¸‰ä¸ªå­—ç¬¦ 
 		}
 		else {
-			condition2 = 2;
-			char SSSS[4]; 
-			strncpy(SSSS,phone,3); //´¢´æÇøºÅ 
-			Deletestring_3(phone,3); //É¾³ıÇøºÅ¶ÎÈı¸ö×Ö·û 
-			SSSS[3] = '\0' ;
+			condition2 = 2; 
+			strncpy(SSSS,phone,3); //å‚¨å­˜åŒºå· 
+			Deletestring_3(phone,3); //åˆ é™¤åŒºå·æ®µä¸‰ä¸ªå­—ç¬¦ 
+			//SSSS[3] = '\0' ;
 		}
 	}
 	else if(length == 10){
 		condition2 = 2;
-		char SSSS[3]; 
-		strncpy(SSSS,phone,3); //´¢´æÇøºÅ 
-		Deletestring_3(phone,3); //É¾³ıÇøºÅ¶ÎÁ½¸ö×Ö·û 
-		SSSS[2] = '\0';
+		strncpy(SSS,phone,3); //å‚¨å­˜åŒºå· 
+		Deletestring_3(phone,3); //åˆ é™¤åŒºå·æ®µä¸¤ä¸ªå­—ç¬¦ 
+		//SSSS[2] = '\0';
 	}
 	else if(length <= 5 && length >= 3){
-		condition2 = 3;//É¾È¥³¤Í¾±ê¼Çºó³¤¶ÈÎª3~5µÄºÅÂë¾ÍÊÇÎÒÃÇµÄÌØÊâºÅÂëÁË 
+		condition2 = 3;//åˆ å»é•¿é€”æ ‡è®°åé•¿åº¦ä¸º3~5çš„å·ç å°±æ˜¯æˆ‘ä»¬çš„ç‰¹æ®Šå·ç äº† 
 	}
 	else{
 		printf("Invalid phone numbers.%c\n",7);
 		return 2;
 	}
+	
 	//printf("%s\n",phone);
+	char nums1[4],nums2[4];
+	strncpy(nums1,phone,4); //å‚¨å­˜ä¸­é—´å››ä½ 
+	Deletestring_3(phone,4);//åˆ é™¤è¿™å››ä½ 
+	strncpy(nums2,phone,4); //å‚¨å­˜æœ€åå››ä½ 
+	Deletestring_3(phone,4);//åˆ é™¤è¿™å››ä½
+	char information[200]; 
 	
-	/*if(length >=3 || length <= 5){
-		if(phone[2])
-	}*/
-	
-	/*
-	
-	Èç¹ûÉ¾³ıÁË ³¤Í¾±ê¼ÇºÅ ºÍ ¹ú¼Ò\µØÇøºÅ ºóºÅĞèÒªÇø·ÖÊÇÌØÊâºÅ¡¢ÊÖ»úºÅÂë»¹ÊÇ×ù»úºÅÂë 
-	
-	if(length > 11 || length < 10){
-		printf("Phone number Error!%c",7);
-		return 0; 
+	if(condition2 == 1) 
+	//sprintf(information,"The phone number:%s %s %s\nis a smartphone number\nregion type: %d\nZone:%d",MAC,nums1,nums2,condition1,country);
+	printf("The phone number:%s %s %s\nis a smartphone number\nregion type: %d\nZone:%d",MAC,nums1,nums2,condition1,country);
+	if(condition2 == 2) {
+		if(SSSS[0] == '\0'){
+			printf("The phone number:%s %s\nis a fixed phone number\nRegion code: %d\nZone Code: %d\nCounty Code: 0%s",nums1,nums2,condition1,country,SSS);
+		}
+		else printf("The phone number:%s %s\nis a fixed phone number\nRegion code: %d\nZone Code: %d\nCounty Code: 0%s",nums1,nums2,condition1,country,SSSS);
 	}
-	*/
-	//printf("%d\n",country);
+	//sprintf(information,"The phone number:%s %s %s\nis a fixed phone number\nregion type: %d\nZone:%d",SSSS,nums1,nums2,condition1,country);
+	if(condition2 == 3)
+	printf("The phone number:%s%s\nis a special number\nregion type: %d\nZone:%d",nums1,nums2,condition1,country);
+	//sprintf(information,"The phone number:%s\nis a special number\nregion type: %d\nZone:%d",phone,condition1,country);
 	
-	/*if (pre3 == "+86") return 1;
-	else return 0;*/
-	/*char pre1[2] = "+";
-	printf("%s\n",pre1[1]);*/
-	//printf("%s\n",pre1[0]);
-	//printf("%c\n",pre1[0]);
-	/*
-	printf("%s\n",pre3);
-	printf("%d\n",pre3 == "+86");
-	printf("%d\n",pre1[0] == '+');
-	*/
+	//printf("%s %s %s")
 	return 0;
 } 
