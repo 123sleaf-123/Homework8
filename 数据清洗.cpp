@@ -109,13 +109,12 @@ int main (void){
 	length = strlen(phone);
 	//printf("%d\n",length);
 	char MAC[4],SSSS[3] = {'\0'},SSS[2] = {'\0'};
-	
+	char id[5]={0},pn[11]={0};
 	if(length == 17){//处理带特殊服务手机电话号码 
-		char id[6];
-		strncpy(id,phone,5);
+		strncpy(id,phone,5);//读取服务号 
 		Deletestring_3(phone,6); 
 		condition2 = 3;
-		id[5] = '\0';
+		strncpy(pn,phone,11);//读取号码 
 	}
 	//printf("%s\n",phone);
 	
@@ -140,6 +139,7 @@ int main (void){
 	}
 	else if(length <= 5 && length >= 3){
 		condition2 = 3;//删去长途标记后长度为3~5的号码就是我们的特殊号码了 
+		strncpy(pn,phone,length);
 	}
 	else{
 		printf("Invalid phone numbers.%c\n",7);
@@ -152,7 +152,7 @@ int main (void){
 	Deletestring_3(phone,4);//删除这四位 
 	strncpy(nums2,phone,4); //储存最后四位 
 	Deletestring_3(phone,4);//删除这四位
-	char information[200]; 
+	//char information[200]; 
 	
 	if(condition2 == 1) 
 	//sprintf(information,"The phone number:%s %s %s\nis a smartphone number\nregion type: %d\nZone:%d",MAC,nums1,nums2,condition1,country);
@@ -165,7 +165,7 @@ int main (void){
 	}
 	//sprintf(information,"The phone number:%s %s %s\nis a fixed phone number\nregion type: %d\nZone:%d",SSSS,nums1,nums2,condition1,country);
 	if(condition2 == 3)
-	printf("The phone number:%s%s\nis a special number\nregion type: %d\nZone:%d",nums1,nums2,condition1,country);
+	printf("The phone number:%s \nis a special number\nregion type: %d\nZone:%d\nService Code: %s",pn,condition1,country,id);
 	//sprintf(information,"The phone number:%s\nis a special number\nregion type: %d\nZone:%d",phone,condition1,country);
 	
 	//printf("%s %s %s")
